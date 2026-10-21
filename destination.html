@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destination — XYZ Travels</title>
+<meta name="description" content="Destination detail: highlights, suggested itinerary, best time to travel and indicative pricing.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/premium.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111a17'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fbf8f2' text-anchor='middle'>X</text></svg>">
+</head>
+<body data-page="destinations">
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+
+  <div id="detail-shell">
+    <section class="detail-hero">
+      <img id="detail-img" src="assets/img/kerala.jpg" alt="" width="1920" height="900">
+      <div class="wrap detail-hero__body">
+        <span class="eyebrow" style="color:var(--gold)">Destination</span>
+        <h1 id="detail-name">Loading…</h1>
+        <div class="meta" id="detail-meta"></div>
+      </div>
+    </section>
+
+    <div id="destination-detail">
+      <section class="section">
+        <div class="wrap detail-grid">
+          <div>
+            <p class="lede" id="detail-blurb" style="margin-bottom:2rem"></p>
+
+            <h2 style="font-size:var(--step-2)">What a trip here usually includes</h2>
+            <ul class="tick-list" id="detail-highlights" style="margin-bottom:2.5rem"></ul>
+
+            <h2 style="font-size:var(--step-2)">A suggested shape</h2>
+            <p class="muted" style="margin-bottom:1rem">An outline, not a fixed itinerary. Days shift with your dates, pace and what you want to see.</p>
+            <div class="itinerary" id="detail-days"></div>
+
+            <h2 style="font-size:var(--step-2);margin-top:2.5rem">Included and not included</h2>
+            <p class="muted" style="margin-bottom:1.25rem">Illustrative for a typical trip. Your quotation lists exactly what applies to you.</p>
+            <div class="inc-grid">
+              <div>
+                <h3 style="font-size:var(--step-1)">Typically included</h3>
+                <ul class="tick-list" id="detail-inclusions"></ul>
+              </div>
+              <div>
+                <h3 style="font-size:var(--step-1)">Typically not included</h3>
+                <ul class="tick-list cross-list" id="detail-exclusions"></ul>
+              </div>
+            </div>
+          </div>
+
+          <aside>
+            <div class="aside-card">
+              <div class="price"><span id="detail-from">—</span><small>Indicative, per person</small></div>
+              <p class="muted" style="margin:.9rem 0 1.25rem">A starting point for two sharing, mid-season. Not a quotation — the real figure depends on your dates, hotels and inclusions.</p>
+              <a class="btn btn--accent" id="detail-cta" href="plan.html" style="width:100%">Plan this destination</a>
+              <p class="muted" style="margin:1rem 0 0;font-size:.76rem">No payment is taken online. A consultant reviews every enquiry before quoting.</p>
+            </div>
+            <div class="notice" style="margin-top:1.25rem">
+              <strong>Availability is checked by a person.</strong> Nothing on this page confirms a hotel, a flight or a seat.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--sand">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Nearby</span>
+              <h2>Other places in the same region</h2>
+            </div>
+            <a class="link-arrow" href="destinations.html">All destinations</a>
+          </div>
+          <div class="grid-dest" id="detail-related"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+/* ============================================================
+   panel-skin.css — makes the public site speak the same design
+   language as the XYZ Travels operator panel (admin-panel).
+
+   Source of truth for the tokens: admin-panel/src/travel.css
+     ocean  #06b6d4 / #0891b2 / #0e7490   (primary)
+     sand   #f59e0b / #fbbf24            (accent)
+     deep   #0b2545 / #081a33 / #05101f  (ink / navy)
+     shell  #f8fafc + radial cyan & amber glows
+
+   Loaded AFTER site.css, so it wins on tokens and on the handful
+   of components below. Nothing here changes markup, JS or content.
+   ============================================================ */
+
+:root {
+  /* ── palette: panel ─────────────────────────────────────────── */
+  --ocean-50:  #ecfeff;
+  --ocean-100: #cffafe;
+  --ocean-200: #a5f3fc;
+  --ocean-400: #22d3ee;
+  --ocean-500: #06b6d4;
+  --ocean-600: #0891b2;
+  --ocean-700: #0e7490;
+  --ocean-800: #155e75;
+  --ocean-900: #164e63;
+
+  --sand-100: #fef3c7;
+  --sand-200: #fde68a;
+  --sand-400: #fbbf24;
+  --sand-500: #f59e0b;
+  --sand-600: #d97706;
+
+  --deep-700: #0b2545;
+  --deep-800: #081a33;
+  --deep-900: #05101f;
+
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-700: #334155;
+
+  /* ── remap the site's existing tokens onto them ──────────────── */
+  --ink: var(--deep-900);
+  --ink-soft: var(--slate-700);
+  --paper: var(--slate-50);
+  --sand: var(--slate-100);
+  --line: rgba(11, 37, 69, 0.12);
+  --line-soft: rgba(11, 37, 69, 0.06);
+
+  --accent: var(--ocean-600);
+  --accent-deep: var(--ocean-700);
+  --forest: var(--deep-700);
+  --gold: var(--sand-500);
+
+  --ok: #059669;
+  --danger: #dc2626;
+
+  /* ── type: the panel is sans-first, so the site stops being serif ── */
+  --font-display: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+                  "Helvetica Neue", Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+
+  /* ── shape: pill controls, 16px surfaces (panel radii) ───────── */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(11, 37, 69, 0.06), 0 1px 3px rgba(11, 37, 69, 0.04);
+  --shadow-md: 0 4px 12px rgba(11, 37, 69, 0.08), 0 2px 4px rgba(11, 37, 69, 0.04);
+  --shadow-lg: 0 18px 40px -12px rgba(11, 37, 69, 0.22);
+}
+
+/* ── shell: same gradient field the panel uses ─────────────────── */
+body {
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(6, 182, 212, 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(245, 158, 11, 0.08), transparent 55%),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── headings: tight, bold, navy — the panel's voice ───────────── */
+h1, h2, h3, h4, .brand__name, .hero h1 {
+  font-family: var(--font-display);
+  font-weight: 750;
+  letter-spacing: -0.022em;
+  color: var(--deep-900);
+}
+h1, .hero h1 { letter-spacing: -0.032em; line-height: 1.05; }
+p, li, .hero p { color: var(--slate-700); }
+
+/* eyebrow / kicker = the panel's small uppercase label */
+.eyebrow, .hero__eyebrow, .footer-note, .badge {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── header ────────────────────────────────────────────────────── */
+header, .site-header, .topbar {
+  background: rgba(248, 250, 252, 0.82);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+}
+header a, .site-header a { color: var(--deep-900); font-weight: 550; }
+header a:hover, .site-header a:hover { color: var(--ocean-700); }
+
+/* brand mark = panel tile */
+.brand__mark {
+  background: linear-gradient(140deg, var(--ocean-600), var(--deep-800));
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.brand__sub { color: var(--slate-600); letter-spacing: 0.04em; }
+
+/* ── buttons: pill, ocean primary, sand for the accent CTA ─────── */
+.btn,
+button.btn {
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  padding: 0.72rem 1.35rem;
+  transition: transform 0.16s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+.btn--accent, .btn[type="submit"] {
+  background: var(--ocean-600);
+  color: #fff;
+  border: 1px solid var(--ocean-700);
+}
+.btn--accent:hover, .btn[type="submit"]:hover { background: var(--ocean-700); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--deep-800);
+  border: 1px solid rgba(11, 37, 69, 0.22);
+  box-shadow: none;
+}
+.btn--ghost:hover { background: var(--deep-800); color: #fff; border-color: var(--deep-800); }
+
+.btn--light { background: #fff; color: var(--deep-900); border: 1px solid var(--line); }
+
+/* ── surfaces: cards, panels, sidebars ─────────────────────────── */
+.card, .aside-card, .form-panel, .detail-hero, .itinerary, .acc__item,
+.dest, .pkg, .grid-pkg > *, .grid-dest > *, .inc-grid > *, .detail-grid > * {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+}
+.card:hover, .dest:hover, .pkg:hover { box-shadow: var(--shadow-md); }
+
+/* images inside cards keep the panel's soft corner */
+.dest img, .pkg img, .hero__media img { border-radius: inherit; }
+
+/* ── hero: navy scrim + ocean edge so it reads like the panel header ── */
+.hero { background: var(--deep-900); }
+.hero::after {
+  background:
+    linear-gradient(90deg, rgba(5, 16, 31, 0.86) 0%, rgba(5, 16, 31, 0.55) 45%, rgba(5, 16, 31, 0.18) 100%),
+    radial-gradient(900px 420px at 88% 10%, rgba(6, 182, 212, 0.28), transparent 62%);
+}
+.hero h1 { color: #fff; }
+.hero p { color: rgba(255, 255, 255, 0.84); }
+.hero__eyebrow { color: var(--ocean-200); }
+
+/* ── search / form controls: match the panel inputs ────────────── */
+.field label, .form-step, .detail-hero__body label {
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+input, select, textarea {
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(11, 37, 69, 0.18);
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-body);
+  padding: 0.68rem 0.85rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--ocean-500);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.18);
+}
+.searchbar { border-radius: var(--r-md); box-shadow: var(--shadow-md); }
+
+/* ── chips / filters ───────────────────────────────────────────── */
+.chip, .chips > * {
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: #fff;
+  font-weight: 550;
+}
+.chip:hover { border-color: var(--ocean-400); color: var(--ocean-800); }
+.chip[aria-pressed="true"], .chip.is-active, .chip--on {
+  background: var(--deep-800);
+  color: #fff;
+  border-color: var(--deep-800);
+}
+
+/* ── status badges: the panel's chip palette ──────────────────── */
+.badge { border-radius: var(--r-pill); padding: 0.26rem 0.62rem; font-size: 0.68rem; }
+.badge--ok   { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.badge--wait { background: var(--sand-100); color: #92400e; border: 1px solid var(--sand-200); }
+.badge--off  { background: var(--slate-100); color: var(--slate-600); border: 1px solid var(--slate-200); }
+
+/* ── accordion ─────────────────────────────────────────────────── */
+.acc__btn { border-radius: var(--r-md); font-weight: 600; }
+.acc__btn[aria-expanded="true"] { background: var(--slate-50); }
+
+/* ── footer: navy, like the panel's dark rail ──────────────────── */
+footer, .site-footer {
+  background:
+    radial-gradient(700px 320px at 92% 0%, rgba(6, 182, 212, 0.16), transparent 60%),
+    var(--deep-900);
+  color: rgba(255, 255, 255, 0.72);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-grid, .footer-bottom { background: transparent; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.10); }
+
+/* header bar: same rhythm as the panel's top rail */
+.site-header__bar { align-items: center; gap: 1.25rem; }
+footer a, .footer-grid a, .footer-brand { color: #fff; }
+footer a:hover { color: var(--ocean-300, var(--ocean-200)); }
+.footer-note { color: rgba(255, 255, 255, 0.55); }
+
+/* ── tables (itinerary / quotes where present) ────────────────── */
+table { border-collapse: collapse; }
+th {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+  border-bottom: 1px solid var(--line);
+}
+td { border-bottom: 1px solid var(--line-soft); }
+
+/* ── a11y: keep the skip link and focus rings visible ─────────── */
+:focus-visible { outline: 2px solid var(--ocean-600); outline-offset: 2px; }
+.skip { border-radius: 0 0 var(--r-sm) 0; }

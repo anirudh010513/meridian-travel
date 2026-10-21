@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan a trip — XYZ Travels</title>
+<meta name="description" content="Six short steps to describe your trip. A consultant reviews every enquiry before a quotation is issued.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/premium.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111a17'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fbf8f2' text-anchor='middle'>X</text></svg>">
+</head>
+<body data-page="plan">
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+
+  <section class="section section--tight" style="padding-top:clamp(2.25rem,5vw,3.5rem)">
+    <div class="wrap">
+      <span class="eyebrow">Personalised trip planner</span>
+      <h1 style="font-size:var(--step-3);max-width:22ch">Tell us the trip. We will tell you what it costs.</h1>
+      <p class="lede">Six steps, about two minutes. No account, no payment details. A consultant reads every submission before a price is quoted.</p>
+      <p class="muted" id="mode-tag" style="margin-top:.75rem">Checking connection to the travel platform…</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap planner">
+      <nav class="planner__steps" aria-label="Progress">
+        <div class="planner__step" data-state="current"><span class="n">1</span> About you</div>
+        <div class="planner__step"><span class="n">2</span> Destination</div>
+        <div class="planner__step"><span class="n">3</span> Dates</div>
+        <div class="planner__step"><span class="n">4</span> Travellers</div>
+        <div class="planner__step"><span class="n">5</span> Preferences</div>
+        <div class="planner__step"><span class="n">6</span> Review</div>
+      </nav>
+
+      <div class="form-panel" id="form-panel">
+        <div class="progress" aria-hidden="true"><div class="progress__bar" id="progress-bar"></div></div>
+        <div class="notice alert-box" id="form-alert" role="alert"></div>
+
+        <form id="planner-form" novalidate>
+          <!-- 1 -->
+          <div class="form-step is-active">
+            <span class="eyebrow">Step 1 of 6</span>
+            <h2 style="font-size:var(--step-2)">Who should we reply to?</h2>
+            <div class="field">
+              <label for="p-name">Full name</label>
+              <input id="p-name" name="name" type="text" autocomplete="name" required>
+              <span class="error" data-error-for="name"></span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="p-email">Email</label>
+                <input id="p-email" name="email" type="email" autocomplete="email" required>
+                <span class="error" data-error-for="email"></span>
+              </div>
+              <div class="field">
+                <label for="p-phone">Phone (optional)</label>
+                <input id="p-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98200 11223">
+                <span class="error" data-error-for="phone"></span>
+              </div>
+            </div>
+            <p class="muted">We use these details to reply to this enquiry only. See the <a href="privacy.html" style="text-decoration:underline">privacy notice</a>.</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="form-step">
+            <span class="eyebrow">Step 2 of 6</span>
+            <h2 style="font-size:var(--step-2)">Where are you going?</h2>
+            <div class="field">
+              <label for="p-destination">Destination or region</label>
+              <input id="p-destination" name="destination" type="text" list="destination-list" placeholder="Kerala, or Japan, or 'somewhere warm in February'" required>
+              <datalist id="destination-list"></datalist>
+              <span class="hint">A region or a feeling is fine — you do not need to know the town.</span>
+              <span class="error" data-error-for="destination"></span>
+            </div>
+            <div class="field">
+              <label for="p-origin">Departure city</label>
+              <input id="p-origin" name="origin" type="text" placeholder="Mumbai" autocomplete="address-level2">
+              <span class="hint">This decides flight routing and how the first day is paced.</span>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="form-step">
+            <span class="eyebrow">Step 3 of 6</span>
+            <h2 style="font-size:var(--step-2)">When would you travel?</h2>
+            <div class="field-row">
+              <div class="field">
+                <label for="p-start">Departure date</label>
+                <input id="p-start" name="startDate" type="date">
+                <span class="error" data-error-for="startDate"></span>
+              </div>
+              <div class="field">
+                <label for="p-end">Return date</label>
+                <input id="p-end" name="endDate" type="date">
+                <span class="error" data-error-for="endDate"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="consent" style="font-weight:400">
+                <input type="checkbox" name="flexible" id="p-flex">
+                <span>My dates are flexible — suggest the best window for this destination.</span>
+              </label>
+            </div>
+            <p class="muted">Season changes a price more than almost anything else. If you are flexible, we will tell you which weeks to avoid and why.</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="form-step">
+            <span class="eyebrow">Step 4 of 6</span>
+            <h2 style="font-size:var(--step-2)">Who is travelling, and at what budget?</h2>
+            <div class="field-row">
+              <div class="field">
+                <label for="p-adults">Adults</label>
+                <input id="p-adults" name="adults" type="number" min="1" max="20" value="2" inputmode="numeric">
+                <span class="error" data-error-for="adults"></span>
+              </div>
+              <div class="field">
+                <label for="p-children">Children (under 12)</label>
+                <input id="p-children" name="children" type="number" min="0" max="10" value="0" inputmode="numeric">
+                <span class="error" data-error-for="children"></span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="p-budget">Budget per person (optional)</label>
+                <input id="p-budget" name="budgetAmount" type="number" min="0" step="1000" placeholder="45000" inputmode="numeric">
+                <span class="error" data-error-for="budgetAmount"></span>
+              </div>
+              <div class="field">
+                <label for="p-currency">Currency</label>
+                <select id="p-currency" name="currency">
+                  <option value="INR" selected>INR — Indian rupee</option>
+                  <option value="USD">USD — US dollar</option>
+                  <option value="EUR">EUR — Euro</option>
+                  <option value="GBP">GBP — Pound sterling</option>
+                  <option value="AED">AED — UAE dirham</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="p-band">Budget band</label>
+              <select id="p-band" name="budgetBand">
+                <option value="unstated" selected>Not sure yet</option>
+                <option value="value">Value — best price for the experience</option>
+                <option value="standard">Standard — comfortable, well located</option>
+                <option value="premium">Premium — notable properties</option>
+                <option value="luxury">Luxury — no compromise on stay</option>
+              </select>
+              <span class="hint">An honest band gets you a more useful first quote than a low one.</span>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="form-step">
+            <span class="eyebrow">Step 5 of 6</span>
+            <h2 style="font-size:var(--step-2)">How do you like to travel?</h2>
+            <fieldset>
+              <legend>Travel style (choose any)</legend>
+              <div class="chips">
+                <label class="chip"><input type="checkbox" name="style" value="honeymoon"> Honeymoon</label>
+                <label class="chip"><input type="checkbox" name="style" value="family"> Family</label>
+                <label class="chip"><input type="checkbox" name="style" value="adventure"> Adventure</label>
+                <label class="chip"><input type="checkbox" name="style" value="luxury"> Luxury</label>
+                <label class="chip"><input type="checkbox" name="style" value="group"> Group / celebration</label>
+                <label class="chip"><input type="checkbox" name="style" value="slow"> Slow travel</label>
+                <label class="chip"><input type="checkbox" name="style" value="culture"> Culture &amp; food</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="p-accom">Accommodation preference</label>
+              <select id="p-accom" name="accommodation">
+                <option value="">No strong preference</option>
+                <option>Boutique and independent</option>
+                <option>Heritage and palace hotels</option>
+                <option>International chains</option>
+                <option>Resorts with pools</option>
+                <option>Homestays</option>
+                <option>Camps and lodges</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="p-notes">Anything we should know?</label>
+              <textarea id="p-notes" name="notes" placeholder="Anniversary on day 3, one vegetarian traveller, no early starts, a child who gets car sick…"></textarea>
+              <span class="hint">The small constraints are usually what make a trip work.</span>
+            </div>
+            <!-- honeypot: hidden from people, attractive to bots -->
+            <div style="position:absolute;left:-9999px" aria-hidden="true">
+              <label for="p-website">Website</label>
+              <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="form-step">
+            <span class="eyebrow">Step 6 of 6</span>
+            <h2 style="font-size:var(--step-2)">Check it over</h2>
+            <div class="review" id="review-box"></div>
+            <div class="field" style="margin-top:1.5rem">
+              <label class="consent">
+                <input type="checkbox" name="consent" id="p-consent">
+                <span>I agree that XYZ Travels may use these details to respond to this enquiry, as described in the <a href="privacy.html" style="text-decoration:underline">privacy notice</a>. Nothing is booked and no payment is taken.</span>
+              </label>
+              <span class="error" data-error-for="consent"></span>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button class="btn btn--ghost btn--sm" type="button" id="btn-back" hidden>Back</button>
+            <button class="btn btn--sm" type="button" id="btn-next">Continue</button>
+            <button class="btn btn--accent btn--sm" type="button" id="btn-submit" hidden>Submit enquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand section--tight">
+    <div class="wrap">
+      <div class="trust" style="color:var(--ink)">
+        <div class="trust__item">
+          <h3>What happens next</h3>
+          <p style="color:rgba(17,26,23,.68)">Your enquiry enters a qualification queue. A consultant reads it, checks the season and comes back with questions or a costed itinerary.</p>
+        </div>
+        <div class="trust__item">
+          <h3>What never happens</h3>
+          <p style="color:rgba(17,26,23,.68)">You will not be auto-quoted, auto-charged, or sent a fake countdown. Booking commitment always needs a person's approval.</p>
+        </div>
+        <div class="trust__item">
+          <h3>Keeping the reference</h3>
+          <p style="color:rgba(17,26,23,.68)">You get a reference and can check progress any time on the <a href="portal.html" style="text-decoration:underline">trip status</a> page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/planner.js"></script>
+<script>
+  // populate the destination datalist from the sample catalogue
+  (function () {
+    var dl = document.getElementById("destination-list");
+    if (!dl || !window.CATALOG) return;
+    window.CATALOG.destinations.forEach(function (d) {
+      var o = document.createElement("option");
+      o.value = d.name;
+      dl.appendChild(o);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your trip — XYZ Travels</title>
+<meta name="description" content="Check the status of an enquiry with your reference and email.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/premium.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111a17'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fbf8f2' text-anchor='middle'>X</text></svg>">
+</head>
+<body data-page="portal">
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+
+  <section class="section section--tight" style="padding-top:clamp(2.25rem,5vw,3.5rem)">
+    <div class="wrap">
+      <span class="eyebrow">Your trip</span>
+      <h1 style="font-size:var(--step-3);max-width:20ch">Check where your enquiry stands</h1>
+      <p class="lede">Enter the reference from your confirmation and the email you used. You will only ever see your own enquiry.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap portal-grid">
+      <div>
+        <div class="form-panel">
+          <div class="notice alert-box" id="portal-alert" role="alert"></div>
+          <form id="portal-form" novalidate>
+            <div class="field">
+              <label for="q-ref">Reference</label>
+              <input id="q-ref" name="ref" type="text" placeholder="TR-20261019-XXXXX" autocapitalize="characters" autocomplete="off" required>
+              <span class="hint">Starts with TR- and appears on your confirmation.</span>
+            </div>
+            <div class="field">
+              <label for="q-email">Email used for the enquiry</label>
+              <input id="q-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <button class="btn btn--sm" type="submit" id="portal-btn" style="width:100%">Check status</button>
+          </form>
+          <p class="muted" style="margin:1.25rem 0 0">Both must match. We return the same "not found" message for a wrong reference and a wrong email, so the page cannot be used to discover whether an address exists.</p>
+        </div>
+
+        <div class="notice" style="margin-top:1.5rem">
+          <strong>What this portal is not.</strong> It is not an account, and it does not show another traveller's data. It reads one enquiry, matched on reference and email.
+        </div>
+      </div>
+
+      <div id="portal-result" hidden></div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="section-head"><div><span class="eyebrow">Coming later</span><h2>What a full trip file will show</h2></div></div>
+      <div class="trust" style="color:var(--ink)">
+        <div class="trust__item">
+          <h3>Proposal versions</h3>
+          <p style="color:rgba(17,26,23,.68)">Each quotation version with what changed and when it expires. Not served to customers yet.</p>
+        </div>
+        <div class="trust__item">
+          <h3>Invoices &amp; receipts</h3>
+          <p style="color:rgba(17,26,23,.68)">What was invoiced, what was received, what is outstanding. Not served to customers yet.</p>
+        </div>
+        <div class="trust__item">
+          <h3>Documents &amp; vouchers</h3>
+          <p style="color:rgba(17,26,23,.68)">Vouchers, tickets and visa checklists, delivered per trip. Not served to customers yet.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:1.75rem">These panels are deliberately marked unavailable rather than filled with sample data. They will appear here when the platform supports them for customers.</p>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/portal.js"></script>
+</body>
+</html>
