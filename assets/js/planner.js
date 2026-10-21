@@ -323,12 +323,16 @@
   fetch(API_BASE + "/api/public/site")
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error("offline"))))
     .then((s) => {
-      if (modeTag)
+      if (modeTag) {
+        modeTag.dataset.state = "live";
         modeTag.innerHTML = `Connected to the travel platform · <strong>${s.mode === "live" ? "live" : "demo"}</strong> mode`;
+      }
     })
     .catch(() => {
-      if (modeTag)
+      if (modeTag) {
+        modeTag.dataset.state = "offline";
         modeTag.innerHTML = `<strong>Offline preview</strong> — submissions cannot be saved from this copy of the site`;
+      }
     });
 
   show(0);

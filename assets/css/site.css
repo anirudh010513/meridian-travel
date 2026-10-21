@@ -547,6 +547,14 @@ legend { padding: 0; font-size: 0.78rem; font-weight: 600; margin-bottom: 0.5rem
 .empty-state p { margin: 0; color: rgba(17, 26, 23, 0.6); font-size: 0.9rem; }
 [hidden] { display: none !important; }
 
+/* planner / portal connection status pill */
+.status-pill { display: inline-flex; align-items: center; gap: .5rem; margin-top: .9rem; padding: .42rem .78rem; border-radius: 999px; border: 1px solid rgba(17, 26, 23, .12); background: rgba(17, 26, 23, .035); font-size: .78rem; line-height: 1; letter-spacing: .01em; color: rgba(17, 26, 23, .72); }
+.status-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #c9a227; box-shadow: 0 0 0 3px rgba(201, 162, 39, .16); }
+.status-pill strong { font-weight: 600; color: inherit; }
+.status-pill[data-state="live"]::before { background: #2f8f5b; box-shadow: 0 0 0 3px rgba(47, 143, 91, .16); }
+.status-pill[data-state="offline"] { color: rgba(140, 60, 40, .9); border-color: rgba(140, 60, 40, .22); background: rgba(140, 60, 40, .05); }
+.status-pill[data-state="offline"]::before { background: #b4552f; box-shadow: 0 0 0 3px rgba(180, 85, 47, .16); }
+
 /* print */
 @media print {
   .site-header, .site-footer, .btn, .searchbar { display: none !important; }
