@@ -103,7 +103,7 @@
     btn.disabled = true;
     btn.textContent = "Checking…";
     try {
-      const res = await fetch(`/api/public/enquiries/${encodeURIComponent(ref)}?email=${encodeURIComponent(email)}`);
+      const res = await fetch(`${(window.MERIDIAN_API || "").replace(/\/$/, "")}/api/public/enquiries/${encodeURIComponent(ref)}?email=${encodeURIComponent(email)}`);
       const body = await res.json().catch(() => ({}));
       if (!res.ok || !body.success) {
         result.hidden = true;

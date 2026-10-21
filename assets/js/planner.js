@@ -10,6 +10,11 @@
   const form = document.getElementById("planner-form");
   if (!form) return;
 
+  // Absolute base for the travel platform API. Empty string = same origin,
+  // which is correct when the site is served BY the gateway. On GitHub Pages
+  // the site is a different origin, so assets/js/api-config.js sets this.
+  const API_BASE = (window.MERIDIAN_API || "").replace(/\/$/, "");
+
   const M = window.MERIDIAN || {};
   const C = M.catalog || { destinations: [] };
   const steps = Array.from(form.querySelectorAll(".form-step"));
@@ -247,7 +252,7 @@
     hideAlert();
 
     try {
-      const res = await fetch("/api/public/enquiries", {
+      const res = await fetch(API_BASE + "/api/public/enquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -315,7 +320,7 @@
 
   // ── mode banner (honest: demo vs live) ───────────────────────────────────
   const modeTag = document.getElementById("mode-tag");
-  fetch("/api/public/site")
+  fetch(API_BASE + "/api/public/site")
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error("offline"))))
     .then((s) => {
       if (modeTag)
